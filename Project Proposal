@@ -1,0 +1,26 @@
+Collaborators-
+Alex, Landon, & James
+
+Our project idea is an app that helps the user to remember whatever they repeatedly need to remember.  It will help the user to organize crucial information, that needs to be remembered more than once.  Some of this information may consist of shopping lists, packing lists, workout schedule, even finances, or meeting schedules.  The user can select what they need help remembering, and the app will give the user a format that bests suits their needs.  There will also be an “other” section that will give the user enough options to satisfy individual needs, but not too many options, to where the user feels overwhelmed.  We want to make a simple solution to an annoying problem, and we believe that we have the vision to make this goal a reality.
+
+Our product combines the power of reminders with an innovative list system, that will give the user the ability to use a well thought out list more than once. The product can be used by anyone who needs to use any list more than one time. It is especially useful for those who see organization as a must, or have a hard time remembering crucial details. Our sponsor will help us to see how we can improve our app.
+
+Required Features-
+Multiple lists
+Shopping list (with optional expiration dates and price)
+Reminders
+GUI
+Exporting lists in JSON
+
+Stretch Goals-
+Common list suggestions/templates 
+Automatically adds to your shopping list the items that expired
+Calculates the amount of your shopping list based on previous data
+Categorize shopping list / Fancy GUI
+
+Risks-
+Our app will require a usable GUI, and none of us have any experience with GUIs in Java.
+To mitigate this Alex has agreed to research Android GUIs before our next Friday team meeting.
+
+Our app will also need to have time based events like reminders, and none of us are confident interacting with the system clock or the Android notification system.
+To mitigate this Landon has agreed to research any applicable APIs and the Android systems involved before our next Friday team meeting.
