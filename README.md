@@ -1,2 +1,2 @@
 # Project-Memory
-Our android project
+Our android project.  All code/information will be stored here.
