@@ -24,3 +24,8 @@ To mitigate this Alex has agreed to research Android GUIs before our next Friday
 
 Our app will also need to have time based events like reminders, and none of us are confident interacting with the system clock or the Android notification system.
 To mitigate this Landon has agreed to research any applicable APIs and the Android systems involved before our next Friday team meeting.
+
+Data Storage
+We will store our data in the device memory but will look into google cloud storage as a stretch goal.
+
+We will not be using different users. It is assumed that different users will be using different devices.
