@@ -20,12 +20,14 @@ Categorize shopping list / Fancy GUI
 
 Risks-
 Our app will require a usable GUI, and none of us have any experience with GUIs in Java.
-To mitigate this Alex has agreed to research Android GUIs before our next Friday team meeting.
+Alex has found resources needed to guide us in this regard. We are confident that we will be able to figure this out.
 
 Our app will also need to have time based events like reminders, and none of us are confident interacting with the system clock or the Android notification system.
-To mitigate this Landon has agreed to research any applicable APIs and the Android systems involved before our next Friday team meeting.
+Landon found the API documentation and a tutorial that will be especially helpful in this regard.
 
 Data Storage
 We will store our data in the device memory but will look into google cloud storage as a stretch goal.
 
-We will not be using different users. It is assumed that different users will be using different devices.
+We will not be using any system for different users. It is assumed that different users will be using different devices. 
+
+The feedback "- Games - how is going to design them? How are you moving the design to the app?" is confusingly worded and does not seem to apply to our project.
