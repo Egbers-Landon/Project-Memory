@@ -18,6 +18,42 @@ Automatically adds to your shopping list the items that expired
 Calculates the amount of your shopping list based on previous data
 Categorize shopping list / Fancy GUI
 
+
+
+// Project Memory Diagram
+// ------------------
+//to get the UML diagram:
+//copy all the code into the website
+//https://yuml.me/diagram/plain/class/draw
+// ------------------
+
+
+// Chain elements together
+[UI]-[Background]->[Checklist]->[Item]->[special]
+[Checklist]->[Alarm]
+[Item]->[Alarm]
+[Background]-[note: Themes?{bg:wheat}]
+
+
+//define stuff
+
+[UI]
+
+[Background| +current: Checklist; -contents: List＜Checklist＞; +settings: Map＜String, String＞ | openChecklist() : void; updateChecklists() : void; search(string) : Checklist; ]
+
+[Checklist| +name: String; +contents: List＜Item＞; +alarm: Alarm; ]
+
+[Item| -name: String; +alarm: Alarm; +checked: bool; +persistent: bool; -special: Special]
+
+[Alarm|+time Date]
+
+
+
+
+
+
+
+
 Risks-
 Our app will require a usable GUI, and none of us have any experience with GUIs in Java.
 Alex has found resources needed to guide us in this regard. We are confident that we will be able to figure this out.
