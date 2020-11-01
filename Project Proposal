@@ -7,16 +7,18 @@ Our product combines the power of reminders with an innovative list system, that
 
 Required Features-
 Multiple lists
-Shopping list (with optional expiration dates and price)
+Items on lists
+Shopping list (with optional expiration dates and prices)
 Reminders
 GUI
-Exporting lists in JSON
+Exporting lists into JSON
 
 Stretch Goals-
 Common list suggestions/templates 
-Automatically adds to your shopping list the items that expired
+Sorting list items by various methods
+Automatically adds expired items to your shopping list
 Calculates the amount of your shopping list based on previous data
-Categorize shopping list / Fancy GUI
+Fancy GUI/different themes
 
 
 
@@ -29,23 +31,26 @@ Categorize shopping list / Fancy GUI
 
 
 // Chain elements together
-[UI]-[Background]->[Checklist]->[Item]->[special]
-[Checklist]->[Alarm]
-[Item]->[Alarm]
-[Background]-[note: Themes?{bg:wheat}]
+[mainActivity]->[Checklist]->[Item]^-[ShoppingItem]
+[mainActivity]uses -.->[GSON API{bg:wheat}]
+[Item]^-[BudgetItem]
+[Checklist]uses -.->[AlarmAPI{bg:wheat}]
+[Item]uses -.->[AlarmAPI]
+[Checklist]->[ListType]
 
 
 //define stuff
+[mainActivity| -contents: List＜Checklist＞; +settings: Map＜String, String＞ | openChecklist() : Checklist; updateChecklist() : void; search(string) : Checklist; toJSON(file) : void; importJSON(file) : void; deleteList(list) : void; aggregateExpired() : void; ]
 
-[UI]
+[Checklist| +name: String; +contents: List＜Item＞; +alarm: Alarm; +type: ListType; | addItem(Item) : void; checkOff() : void; deleteItem() : void; moveItem(Checklist);]
 
-[Background| +current: Checklist; -contents: List＜Checklist＞; +settings: Map＜String, String＞ | openChecklist() : void; updateChecklists() : void; search(string) : Checklist; ]
+[<<Enum>>ListType| shopping; Budget; ToDo; ]
 
-[Checklist| +name: String; +contents: List＜Item＞; +alarm: Alarm; ]
+[Item| -contents: String; +alarm: Alarm; +checked: bool; +persistent: bool; | convert(ListType);]
 
-[Item| -name: String; +alarm: Alarm; +checked: bool; +persistent: bool; -special: Special]
+[ShoppingItem| price: float;]
+[BudgetItem| amount: float;]
 
-[Alarm|+time Date]
 
 
 
