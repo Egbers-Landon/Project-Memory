@@ -20,7 +20,8 @@ Automatically adds expired items to your shopping list
 Calculates the amount of your shopping list based on previous data
 Fancy GUI/different themes
 
-
+Our Approach
+Our first hurdle to overcome is to create everything we need for a list page (there will be other steps before this, such as creating a homepage, but I wouldn’t classify them as hurdles.  We should be able to take care of some ofthose things relatively easily).  From there, we will want to focus on reusing our list code, to create unique types of lists.  This is why creating our first listis such a hurdle.  We want to make sure that that code is reusable.  If we focus on making the code from our standard list page reusable, we can add and remove elements that we would or wouldn’t need for other lists (such as adding an expiration date option to our shopping list section.  We wouldn’t need that for a standard list).  Our next hurdle is to work with our code “pieces” and place them where they need to go to create our other list types.  If we fail to properly organize our code, one change to something might affect everything else.  We wouldn’t run into issues until late in the design process and making proper fixes could be a nightmare.  If we keep in mind that our code can be reused, we can save valuable time, while creatingsomething beautiful and eloquent, and who knows, we could even make easyupdates to our app long after the semester is over if we see fit.
 
 // Project Memory Diagram
 // ------------------
