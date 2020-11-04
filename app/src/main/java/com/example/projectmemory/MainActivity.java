@@ -1,4 +1,4 @@
-package app.src.main.java.com.example.projectmemory;
+package com.example.projectmemory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
