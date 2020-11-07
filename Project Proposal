@@ -38,7 +38,7 @@ Our first hurdle to overcome is to create everything we need for a list page (th
 [mainActivity]uses -.->[GSON API{bg:wheat}]->[SavedFile{bg:green}]^-[Checklist{bg:white}]
 [Item{bg:white}]^-[BudgetItem{bg:white}]
 [Checklist{bg:white}]->[ListType]
-[Item{bg:white}]->[ListType]
+[Item{bg:white}]
 [mainActivity]->[listActivity]->[Checklist{bg:white}]
 [listActivity]->[itemActivity]->[Item{bg:white}]
 [itemActivity]->[alarmActivity]uses -.->[AlarmAPI{bg:wheat}]
@@ -63,8 +63,6 @@ Our first hurdle to overcome is to create everything we need for a list page (th
 [ShoppingItem| price: float;]
 
 [BudgetItem| amount: float;]
-
-
 
 
 
