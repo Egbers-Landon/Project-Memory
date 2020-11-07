@@ -23,6 +23,8 @@ Fancy GUI/different themes
 Our Approach
 Our first hurdle to overcome is to create everything we need for a list page (there will be other steps before this, such as creating a homepage, but I wouldn’t classify them as hurdles.  We should be able to take care of some ofthose things relatively easily).  From there, we will want to focus on reusing our list code, to create unique types of lists.  This is why creating our first listis such a hurdle.  We want to make sure that that code is reusable.  If we focus on making the code from our standard list page reusable, we can add and remove elements that we would or wouldn’t need for other lists (such as adding an expiration date option to our shopping list section.  We wouldn’t need that for a standard list).  Our next hurdle is to work with our code “pieces” and place them where they need to go to create our other list types.  If we fail to properly organize our code, one change to something might affect everything else.  We wouldn’t run into issues until late in the design process and making proper fixes could be a nightmare.  If we keep in mind that our code can be reused, we can save valuable time, while creatingsomething beautiful and eloquent, and who knows, we could even make easyupdates to our app long after the semester is over if we see fit.
 
+
+
 // Project Memory Diagram
 // ------------------
 //to get the UML diagram:
@@ -32,26 +34,35 @@ Our first hurdle to overcome is to create everything we need for a list page (th
 
 
 // Chain elements together
-[mainActivity]->[Checklist]->[Item]^-[ShoppingItem]
-[mainActivity]uses -.->[GSON API{bg:wheat}]
-[Item]^-[BudgetItem]
-[Checklist]uses -.->[AlarmAPI{bg:wheat}]
-[Item]uses -.->[AlarmAPI]
-[Checklist]->[ListType]
-
+[Checklist{bg:white}]^-[Item{bg:white}]^-[ShoppingItem{bg:white}]
+[mainActivity]uses -.->[GSON API{bg:wheat}]->[SavedFile{bg:green}]^-[Checklist{bg:white}]
+[Item{bg:white}]^-[BudgetItem{bg:white}]
+[Checklist{bg:white}]->[ListType]
+[Item{bg:white}]->[ListType]
+[mainActivity]->[listActivity]->[Checklist{bg:white}]
+[listActivity]->[itemActivity]->[Item{bg:white}]
+[itemActivity]->[alarmActivity]uses -.->[AlarmAPI{bg:wheat}]
 
 //define stuff
 [mainActivity| -contents: List＜Checklist＞; +settings: Map＜String, String＞ | openChecklist() : Checklist; updateChecklist() : void; search(string) : Checklist; toJSON(file) : void; importJSON(file) : void; deleteList(list) : void; aggregateExpired() : void; ]
 
-[Checklist| +name: String; +contents: List＜Item＞; +alarm: Alarm; +type: ListType; | addItem(Item) : void; checkOff() : void; deleteItem() : void; moveItem(Checklist);]
+[listActivity]
+
+[itemActivity]
+
+[alarmActivity]
+
+[SavedFile{bg:green}]
+
+[Checklist{bg:white}| +name: String; +contents: List＜Item＞; +alarm: Alarm; +type: ListType; | addItem(Item) : void; checkOff() : void; deleteItem() : void; moveItem(Checklist);]
 
 [<<Enum>>ListType| shopping; Budget; ToDo; ]
 
 [Item| -contents: String; +alarm: Alarm; +checked: bool; +persistent: bool; | convert(ListType);]
 
 [ShoppingItem| price: float;]
-[BudgetItem| amount: float;]
 
+[BudgetItem| amount: float;]
 
 
 
