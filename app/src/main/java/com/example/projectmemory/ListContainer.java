@@ -5,8 +5,6 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 
 public class ListContainer {
-    //TODO: Find a way to use JSON_LIST as final
-    public static String JSON_LISTS = "";
     ArrayList<List> lists;
 
     public void createList(String name){
@@ -14,13 +12,5 @@ public class ListContainer {
         List list = new List(name);
         //Puts the list inside lists
         lists.add(list);
-    }
-
-    public void parseLists(){
-        Gson gson = new Gson();
-        for(List l : lists){
-            String listData = gson.toJson(l);
-            JSON_LISTS+=listData;
-        }
     }
 }

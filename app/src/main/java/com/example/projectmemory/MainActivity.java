@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 public class MainActivity extends AppCompatActivity {
-    //TODO: Avoid Null Pointer Exception
     ListContainer CommonLists;
     public static final String JSON_DATA = "JSON_DATA";
     public static final String APP_PREFS = "APPLICATION_PREFERENCES";
@@ -40,27 +39,34 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "List added to your Common lists", Toast.LENGTH_SHORT).show();
 
     }
+
     public void saveLists(){
         //Use SharedPreferences to store all the lists
         SharedPreferences sharedPreferences = getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-        //Prepare JSON data
-        CommonLists.parseLists();
-        //Save each list in JSON_LIST
-        editor.putString(JSON_DATA, CommonLists.JSON_LISTS);
+        //Serialize and save CommonLists
+        Gson gson = new Gson();
+        String json = gson.toJson(CommonLists);
+        editor.putString(JSON_DATA, json);
         editor.apply();
     }
 
     public void loadLists(){
         SharedPreferences sharedPreferences = getSharedPreferences(APP_PREFS, Context.MODE_PRIVATE);
-        //Load shared preferences
+        //Load data from shared preferences
         String listContainers = sharedPreferences.getString(JSON_DATA, null);
 
         //Deserialize
         Gson gson = new Gson();
         ListContainer savedCommonLists = gson.fromJson(listContainers, ListContainer.class);
-        this.CommonLists = savedCommonLists;
 
+        //Check for null and update
+        if (savedCommonLists == null){
+            CommonLists = new ListContainer();
+        }
+        else{
+            this.CommonLists = savedCommonLists;
+        }
     }
 }
